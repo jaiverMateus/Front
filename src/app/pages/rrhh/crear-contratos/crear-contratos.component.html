@@ -1,0 +1,244 @@
+<div class="page-body">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-md-offset-4">
+            <div class="card">
+
+                <form #FormContrato="ngForm" ng-submit="" style="padding-bottom: 0px" [formGroup]="dataForm" novalidate>
+                    <div class="row invoice-contact" style="align-items:flex-start !important;">
+                        <div class="col-md-8">
+                            <div class="invoice-box row">
+                                <div class="col-sm-12">
+                                    <table class="table table-responsive invoice-table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width:100px">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <h4>Crear Contrato</h4>
+                        </div>
+                    </div>
+
+
+                    <div class="card-body" style="padding-bottom: 0px">
+                        <div class="row invoive-info" style="margin-bottom: 0; padding-bottom: 0px;">
+                            <div class="col-md-8">
+
+                                <div class="form-group">
+                                    <label>Nombre</label>
+                                    <input type="text" id="name" name="name" formControlName="name" class="form-control form-control-sm f-9 "  />                              
+                                </div>
+                                     <div *ngIf="dataForm.controls['name'].invalid && (dataForm.controls['name'].dirty || dataForm.controls['name'].touched)" class="alert alert-danger">
+                                     <div *ngIf="dataForm.controls['name'].errors.required">Nombre de contrato es requerido.</div>
+                                     </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Codigo</label>
+                                    <input type="text" name="code" id="code" class="form-control form-control-sm f-9 " formControlName="code" />
+                                </div>
+                                <div *ngIf="dataForm.controls['code'].invalid && (dataForm.controls['code'].dirty || dataForm.controls['code'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['code'].errors.required">Codigo es requerido.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Numero #</label>
+                                    <input type="text" name="number" id="number"
+                                        class="form-control form-control-sm f-9 " formControlName="number" />
+                                </div>
+                                <div *ngIf="dataForm.controls['number'].invalid && (dataForm.controls['number'].dirty || dataForm.controls['number'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['number'].errors.required">Numero es requerido.</div>
+                                    <div *ngIf="dataForm.controls['number'].errors.pattern">Solo se permiten numeros.</div>
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Id Administrador</label>
+                                    <input type="text" name="administrator_id" id="administrator_id"
+                                        class="form-control form-control-sm f-9 " formControlName="administrator_id" />
+                                </div>
+                                <div *ngIf="dataForm.controls['administrator_id'].invalid && (dataForm.controls['administrator_id'].dirty || dataForm.controls['administrator_id'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['administrator_id'].errors.required">Id del administrador es requerido.</div>
+                                    <div *ngIf="dataForm.controls['administrator_id'].errors.pattern">Solo se permiten numeros.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Tipo de Contrato</label>
+                                    <select type="text" name="contract_type" id="contract_type"
+                                        class="form-control form-control-sm f-9 " formControlName="contract_type">
+                                        <option value="" selected>Seleccione tipo de contrato</option>
+                                        <option value="Capita">Capita</option>
+                                        <option value="Evento">Evento</option>
+                                        <option value="Particular">Particular</option>
+                                    </select>
+                                    <div *ngIf="dataForm.controls['contract_type'].invalid && (dataForm.controls['contract_type'].dirty || dataForm.controls['contract_type'].touched)" class="alert alert-danger">
+                                        <div *ngIf="dataForm.controls['name'].errors.required">Tipo de contrato requerido.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Id Lista de Precio</label>
+                                    <input type="text" name="price_list_id" id="price_list_id"
+                                        class="form-control form-control-sm f-9 " formControlName="price_list_id" />
+                                </div>
+                                <div *ngIf="dataForm.controls['price_list_id'].invalid && (dataForm.controls['price_list_id'].dirty || dataForm.controls['price_list_id'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['price_list_id'].errors.required">Id Lista de precio es requerido.</div>
+                                    <div *ngIf="dataForm.controls['price_list_id'].errors.pattern">Solo se permiten numeros.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Id Forma de Pago</label>
+                                    <input type="text" name="payment_method_id" id="payment_method_id"
+                                        class="form-control form-control-sm f-9 " formControlName="payment_method_id" />
+                                </div>
+                                <div *ngIf="dataForm.controls['payment_method_id'].invalid && (dataForm.controls['payment_method_id'].dirty || dataForm.controls['payment_method_id'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['payment_method_id'].errors.required">Id Medio de pago es requerido.</div>
+                                    <div *ngIf="dataForm.controls['payment_method_id'].errors.pattern">Solo se permiten numeros.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Id Plan de Beneficio</label>
+                                    <input type="text" name="benefits_plan_id" id="benefits_plan_id"
+                                        class="form-control form-control-sm f-9 " formControlName="benefits_plan_id" />
+                                </div>
+                                <div *ngIf="dataForm.controls['benefits_plan_id'].invalid && (dataForm.controls['benefits_plan_id'].dirty || dataForm.controls['benefits_plan_id'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['benefits_plan_id'].errors.required">Id Plan de beneficio es requerido.</div>
+                                    <div *ngIf="dataForm.controls['benefits_plan_id'].errors.pattern">Solo se permiten numeros.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Poliza</label>
+                                    <input type="text" name="policy" id="policy"
+                                        class="form-control form-control-sm f-9 " formControlName="policy" />
+                                </div>
+                                <div *ngIf="dataForm.controls['policy'].invalid && (dataForm.controls['policy'].dirty || dataForm.controls['policy'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['policy'].errors.required">Poliza es requerido.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Precio $</label>
+                                    <input type="text" name="price" id="price"
+                                        class="form-control form-control-sm f-9 " formControlName="price" />
+                                </div>
+                                <div *ngIf="dataForm.controls['price'].invalid && (dataForm.controls['price'].dirty || dataForm.controls['price'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['price'].errors.required">Precio es requerido.</div>
+                                    <div *ngIf="dataForm.controls['price'].errors.pattern">Solo se permiten numeros.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Variacion %</label>
+                                    <input type="text" name="variation" id="variation"
+                                        class="form-control form-control-sm f-9 " formControlName="variation" />
+                                </div>
+                                <div *ngIf="dataForm.controls['variation'].invalid && (dataForm.controls['variation'].dirty || dataForm.controls['variation'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['variation'].errors.required">Variacion es requerida.</div>
+                                    <div *ngIf="dataForm.controls['variation'].errors.pattern">Variacion es un decimal.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Id Empresa</label>
+                                    <input type="text" name="company_id" id="company_id"
+                                        class="form-control form-control-sm f-9 " formControlName="company_id" />
+                                </div>
+                                <div *ngIf="dataForm.controls['company_id'].invalid && (dataForm.controls['company_id'].dirty || dataForm.controls['company_id'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['company_id'].errors.required">Id Empresa es requerido.</div>
+                                    <div *ngIf="dataForm.controls['company_id'].errors.pattern">Solo se permiten numeros.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Id Departamento</label>
+                                    <input type="text" name="department_id" id="department_id"
+                                        class="form-control form-control-sm f-9 " formControlName="department_id" />
+                                </div>
+                                <div *ngIf="dataForm.controls['department_id'].invalid && (dataForm.controls['department_id'].dirty || dataForm.controls['department_id'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['department_id'].errors.required">Id Departamento es requerido.</div>
+                                    <div *ngIf="dataForm.controls['department_id'].errors.pattern">Solo se permiten numeros.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Id Regimen</label>
+                                    <input type="text" name="regimen_id" id="regimen_id"
+                                        class="form-control form-control-sm f-9 " formControlName="regimen_id" />
+                                </div>
+                                <div *ngIf="dataForm.controls['regimen_id'].invalid && (dataForm.controls['regimen_id'].dirty || dataForm.controls['regimen_id'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['regimen_id'].errors.required">Id Regimen es requerido.</div>
+                                    <div *ngIf="dataForm.controls['regimen_id'].errors.pattern">Solo se permiten numeros.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Id Sede</label>
+                                    <input type="text" name="location_id" id="location_id"
+                                        class="form-control form-control-sm f-9 " formControlName="location_id" />
+                                </div>
+                                <div *ngIf="dataForm.controls['location_id'].invalid && (dataForm.controls['location_id'].dirty || dataForm.controls['location_id'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['location_id'].errors.required">Id Sede es requerido.</div>
+                                    <div *ngIf="dataForm.controls['location_id'].errors.pattern">Solo se permiten numeros.</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Fecha Inicio</label>
+                                    <input type="date"  name="start_date" id="start_date"
+                                        class="form-control form-control-sm f-9" formControlName="start_date" />
+                                </div>
+                                <div *ngIf="dataForm.controls['start_date'].invalid && (dataForm.controls['start_date'].dirty || dataForm.controls['start_date'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['start_date'].errors.required">Fecha Inicio es requerida.</div>
+                                    <div *ngIf="dataForm.touched && dataForm.invalid">Fecha de inicio debe de ser menor</div>
+
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Fecha Fin</label>
+                                    <input type="date"  name="end_date" id="end_date"
+                                        class="form-control form-control-sm f-9" formControlName="end_date" />
+                                </div>
+                                <div *ngIf="dataForm.controls['end_date'].invalid && (dataForm.controls['end_date'].dirty || dataForm.controls['end_date'].touched)" class="alert alert-danger">
+                                    <div *ngIf="dataForm.controls['end_date'].errors.required">Fecha Fin es requerida.</div>
+                                    <div *ngIf="dataForm.touched && dataForm.invalid">Fecha de final debe de ser mayor</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                     <hr>
+                    <div class="card-body" style="padding-top: 0px">
+
+                    <div class="text-right mrg-top-5">
+                        <button type="submit" [disabled]="dataForm.pristine || dataForm.invalid" class="btn btn-primary btn-sm btn-block"
+                            (click)="GuardarContrato(FormContrato) ">Guardar Contrato</button>
+                    </div>
+
+                    </div>
+
+                </form>
+                
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row mb-2">
+          <div class="col-md-12 mb-3">
+            <h5>Cuentas Contables</h5>
+          </div>
+          <div class="col-md-12">
+            <ngb-accordion [closeOthers]="true" >
+              <ngb-panel id="static-1" title="Salario y subsidio de transporte" >
+                <ng-template ngbPanelContent >
+                  <app-salario-y-subsidio></app-salario-y-subsidio>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="static-2" title="Ingresos Constitutivos">
+                <ng-template ngbPanelContent>
+                  <app-ingresos-constitutivos></app-ingresos-constitutivos>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="static-3" title="Ingresos No Constitutivos">
+                <ng-template ngbPanelContent>
+                 <app-ingresos-no-constitutivos></app-ingresos-no-constitutivos>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="static-4" title="Licencias e Incapacidades">
+                <ng-template ngbPanelContent>
+                  <app-licencias-e-indiscapacidades></app-licencias-e-indiscapacidades>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="static-5" title="Deducciones">
+                <ng-template ngbPanelContent>
+                  <app-deducciones></app-deducciones>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="static-6" title="Prestaciones Sociales">
+                <ng-template ngbPanelContent>
+                  <app-prestaciones-sociales-nomina></app-prestaciones-sociales-nomina>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="static-7" title="Seguridad Social">
+                <ng-template ngbPanelContent>
+                  <app-seguridad-social></app-seguridad-social>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="static-8" title="Liquidacion">
+                <ng-template ngbPanelContent>
+                  <app-liquidacion></app-liquidacion>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="static-9" title="Bancos y Caja">
+                <ng-template ngbPanelContent>
+                  <app-bancos-y-caja></app-bancos-y-caja>
+                </ng-template>
+              </ngb-panel>
+            </ngb-accordion>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

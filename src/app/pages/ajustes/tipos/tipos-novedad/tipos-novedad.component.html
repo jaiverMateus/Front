@@ -1,0 +1,141 @@
+<div class="page-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-sm-12" >
+                            <h5>Tipos de Novedades</h5>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="col-md-12 d-flex justify-content-between mb-4" >
+                            
+                            <input type="text" class="form-control-sm form-control rounded" style="width: 200px;"
+                                        placeholder="Buscar por Titulo de la Novedad">
+
+                            <button type="button" class="btn btn-primary btn-sm" (click)="modalNuevaHojaNovedad.show()">
+                                <i class="fa fa-plus"></i>&nbsp;Agregar Nuevo Tipo de Novedad
+                            </button>
+
+
+
+                        </div>
+                    <div class="col-md-12">
+                        <table class="table-striped table-bordered" style="font-size: 15px;">
+                            <thead>
+                                <tr>
+                                    <th>Tipo de Novedad</th>
+                                    <th>Modalidad de Novedad</th>
+                                    <th>Novedad</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of Tipos_Novedad; let i =index">
+                                    <td style="max-width: 450px; width:400px !important;" class="text-left">
+                                        {{item.Tipo_Novedad}}
+
+                                    </td>
+                                    <td style="max-width: 650px; width: 650px !important;" class="text-left">
+                                        {{item.Modalidad_Novedad}}
+                                    </td>
+                                    <td style="max-width: 650px; width: 650px !important;" class="text-left">
+                                        {{item.Novedad_Novedad}}
+                                    </td>
+                                    <td style="max-width: 100px !important; width: 100px !important;"
+                                        class="text-right">
+                                        <div>
+                                            <div ngbDropdown class="d-inline-block ">
+                                                <button ngbDropdownToggle
+                                                    class="btn btn-primary btn-sm waves-effect waves-light "
+                                                    type="button">
+                                                    <i class="mdi mdi-chevron-down "></i>
+                                                </button>
+                                                <div ngbDropdownMenu aria-labelledby>
+                                                    <a class="dropdown-item waves-light waves-effect caja-botones"
+                                                        target="_blank"><i class="fa fa-file-pdf-o"></i>Eliminar</a>
+                                                    <a class="dropdown-item waves-light waves-effect caja-botones" (click)="EditarNovedad(i)"><i
+                                                            class="fa fa-pencil"></i>Editar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <div class="row mt-4">
+                            <div class="col-lg-12">
+                                <ngb-pagination class="pagination-rounded d-flex justify-content-center"
+                                    [collectionSize]="pagination.collectionSize" [pageSize]="pagination.pageSize"
+                                    [(page)]="pagination.page" maxSize="5" rotate="true" ellipses="false"
+                                    boundaryLinks="true"></ngb-pagination>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <app-modal-basic #modalNuevaHojaNovedad [dialogClass]="'document'">
+        <div class="app-modal-header">
+            <h4 class="modal-title">Nuevo Tipo de Novedad</h4>
+            <button type="button" class="close basic-close" (click)="modalNuevaHojaNovedad.hide()">
+                <span aria-hiden="true">&times;</span>
+            </button>
+        </div>
+        <div class="app-modal-body">
+            <form #FormHojaNovedad="ngForm">
+                <div class="row">
+                    <div class="group col-md-4" style="font-size: 14px;">
+                        <label>Tipo de Novedad</label>
+                        
+                        <input [(ngModel)]="Hoja.Tipo_Novedad" name="Tipo_Novedad" class="form-control form-control-sm" type="text">
+                    </div>
+                    <div class="group col-md-5" style="font-size: 14px;">
+                        <label>Nombre de la Novedad</label>
+                        <input [(ngModel)]="Hoja.Novedad_Novedad" name="Novedad_Novedad" class="form-control form-control-sm" type="text">
+                    </div>
+                    <div class="group col-md-3" style="font-size: 14px;">
+                        <label>Tipo</label>
+                        
+                        
+                       <select [(ngModel)]="Hoja.Modalidad_Novedad" name="Modalidad_Novedad" class="form-control form-control-sm" type="text"  id="Seleccione tipo"required>
+                        <option value="" selected>Seleccione Tipo</option>
+                        <option value="Hora">Hora</option>
+                        <option value="Dia">Dia</option>
+                    
+                </select>    
+                </div>
+
+                   <!-- <label>Dependencia</label>
+                    <select class="form-control form-control-sm" name="Id_Dependencia" [(ngModel)]="Hoja.Id_Dependencia" (change)="Dependencia_Cargo($event.target.value)" id="dependencia" required>
+              <option value="">Seleccione Dependencia</option>
+              <option *ngFor="let Dependencia of Dependencias " [value]="Dependencia.Id_Dependencia">{{Dependencia.Nombre}}</option>
+            </select>-->
+                </div>
+
+
+
+
+      
+            </form>
+        </div>
+        <div class="app-modal-footer">
+            <div class="text-right">
+                <button type="button" class="btn btn-default btn-sm"
+                    (click)="modalNuevaHojaNovedad.hide()">Cancelar</button>
+                <button type="button" (click)="GuardarHoja()" class="btn btn-primary btn-sm">Guardar</button>
+            </div>
+        </div>
+
+
+    </app-modal-basic>
+</div>

@@ -1,0 +1,108 @@
+<div class="page-body">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-md-offset-4">
+            <div class="card">
+                <form #FormNotaTecnica="ngForm" ng-submit="" style="padding-bottom: 0px" [formGroup]="dataForm"
+                    novalidate>
+                    <div class="row invoice-contact" style="align-items:flex-start !important;">
+                        <div class="col-md-8">
+                            <div class="invoice-box row">
+                                <div class="col-sm-12">
+                                    <table class="table table-responsive invoice-table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width:100px">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <h4>Crear Nota Tecnica</h4>
+                        </div>
+                    </div>
+
+                    <div class="card-body" style="padding-bottom: 0px">
+                        <div class="row invoive-info" style="margin-bottom: 0; padding-bottom: 0px">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Frecuencia</label>
+                                    <input type="text" id="frequency" name="frequency"
+                                        class="form-control form-control-sm f-9" formControlName="frequency" />
+                                    <div *ngIf="dataForm.controls['frequency'].invalid && (dataForm.controls['frequency'].dirty || dataForm.controls['frequency'].touched)"
+                                        class="alert alert-danger">
+                                        <div *ngIf="dataForm.controls['frequency'].errors.required">Frecuencia es
+                                            requerida.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Porcentaje de alerta</label>
+                                    <input type="text" id="alert_percentage" name="alert_percentage"
+                                        class="form-control form-control-sm f-9" formControlName="alert_percentage" />
+                                    <div *ngIf="dataForm.controls['alert_percentage'].invalid && (dataForm.controls['alert_percentage'].dirty || dataForm.controls['alert_percentage'].touched)"
+                                        class="alert alert-danger">
+                                        <div *ngIf="dataForm.controls['alert_percentage'].errors.required">Porcentaje de
+                                            alerta es requerido.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Valor Unitario</label>
+                                    <input type="text" id="unit_value" name="unit_value"
+                                        class="form-control form-control-sm f-9" formControlName="unit_value" />
+                                    <div *ngIf="dataForm.controls['unit_value'].invalid && (dataForm.controls['unit_value'].dirty || dataForm.controls['unit_value'].touched)"
+                                        class="alert alert-danger">
+                                        <div *ngIf="dataForm.controls['unit_value'].errors.required">Valor Unitario es requerido.</div>
+                                        <div *ngIf="dataForm.controls['unit_value'].errors.pattern">Valor Unitario debe ser un numero.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Oportunidad</label>
+                                    <input type="chance" id="chance" name="chance"
+                                        class="form-control form-control-sm f-9" formControlName="chance" />
+                                    <div *ngIf="dataForm.controls['chance'].invalid && (dataForm.controls['chance'].dirty || dataForm.controls['chance'].touched)"
+                                        class="alert alert-danger">
+                                        <div *ngIf="dataForm.controls['chance'].errors.required">Oportunidad es
+                                            requerida.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Fecha</label>
+                                    <input type="date" id="date" name="date" class="form-control form-control-sm f-9"
+                                        formControlName="date" />
+                                    <div *ngIf="dataForm.controls['date'].invalid && (dataForm.controls['date'].dirty || dataForm.controls['date'].touched)"
+                                        class="alert alert-danger">
+                                        <div *ngIf="dataForm.controls['date'].errors.required">Fecha es requerida.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card-body" style="padding-top: 0px">
+                        <div class="text-right mrg-top-5">
+                            <button type="submit" [disabled]="dataForm.pristine || dataForm.invalid"
+                                class="btn btn-primary btn-sm btn-block"
+                                (click)="GuardarNotaTecnica(FormNotaTecnica)">Guardar Nota Tecnica</button>
+                        </div>
+                    </div>
+
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="page-body">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-md-offset-4">
+            <div class="card">
+                <form #FormCaja="ngForm" ng-submit="" style="padding-bottom: 0px" [formGroup]="dataForm" novalidate>
+                    <div class="row invoice-contact" style="align-items:flex-start !important;">
+                        <div class="col-md-8">
+                            <div class="invoice-box row">
+                                <div class="col-sm-12">
+                                    <table class="table table-responsive invoice-table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width:100px">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <h4>Crear Caja</h4>
+                        </div>
+                    </div>
+
+                    <div class="card-body" style="padding-bottom: 0px">
+                        <div class="row invoive-info" style="margin-bottom: 0; padding-bottom: 0px">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Nombre</label>
+                                    <input type="text" id="name" name="name" class="form-control form-control-sm f-9" formControlName="name" />
+                                    <div *ngIf="dataForm.controls['name'].invalid && (dataForm.controls['name'].dirty || dataForm.controls['name'].touched)" class="alert alert-danger">
+                                        <div *ngIf="dataForm.controls['name'].errors.required">Nombre de Caja es requerido.</div>
+                                        </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Descripcion</label>
+                                    <input type="text" id="description" name="description" class="form-control form-control-sm f-9" formControlName="description" />
+                                    <div *ngIf="dataForm.controls['description'].invalid && (dataForm.controls['description'].dirty || dataForm.controls['description'].touched)" class="alert alert-danger">
+                                        <div *ngIf="dataForm.controls['description'].errors.required">Descripcion de Caja es requerido.</div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+<div class="card-body" style="padding-top: 0px">
+<div class="text-right mrg-top-5">
+    <button type="submit" [disabled]="dataForm.pristine || dataForm.invalid" class="btn btn-primary btn-sm btn-block" (click)="GuardarCaja(FormCaja)">Guardar Caja</button>
+</div>
+</div>
+
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

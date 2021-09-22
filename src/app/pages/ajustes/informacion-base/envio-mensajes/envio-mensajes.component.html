@@ -1,0 +1,164 @@
+<div class="row">
+
+    <div class="col-md-2">
+
+        <div class="card">
+
+
+            <div class="card-body">
+                <div class="row mb-2">
+                    <div class="col-sm-12">
+                        <h5>Descargar Mensajes</h5>
+
+                    </div>
+                    <div class="col-md-12 text-left">
+                        Fechas
+                        <p></p>
+                        <th>
+                            <table class="table">
+
+                                <input type="date" [(ngModel)]="filtro_Fecha_Inicio" (blur)="filtros()"
+                                    class="form-control form-control-sm" placeholder="Filtro Fecha ">
+                                <p></p>
+                                <button class=" btn btn-primary btn-sm float-right">&nbsp;Descargar</button>
+                            </table>
+                        </th>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="col-md-10">
+
+        <div class="card">
+
+            <div class="card-body">
+                <div class="row mb-2">
+                    <div class="col-md-12">
+                        <h5>Mensajes enviados</h5>
+                    </div>
+
+
+
+
+                </div>
+                <div class="col-md-12 text-right mb-3">
+                    <button type="button" class="btn btn-primary btn-sm " (click)="modalNuevaHojaMensaje.show()">
+                        <i class="fa fa-plus"></i>&nbsp;Nuevo Mensaje
+                    </button>
+
+                </div>
+
+                <div class="col-md-12">
+
+                    <table class="table-bordered table-striped" style="font-size:15px">
+                        <thead>
+                            <tr>
+                                <th>Funcionario</th>
+                                <th>Fecha Envio</th>
+                                <th>Mensaje</th>
+                            </tr>
+
+                        </thead>
+                        <tr>
+                            <th class="tabla-filtro">
+
+                                <div>
+                                    <input type="text" style="width:450px ;" class="form-contron "
+                                        [(ngModel)]="filtro_funcionario" placeholder="Filtro funcionario">
+                                </div>
+
+                            </th>
+                            <th class="tabla-filtro">
+                                <div>
+                                    <input type="date" [(ngModel)]="filtro_Fecha" (blur)="filtros()"
+                                        class="form-control form-control-sm" placeholder="Filtro Fecha ">
+                                </div>
+                            </th>
+                            <th class="tabla-filtro">
+
+
+                            </th>
+                        </tr>
+
+                        <tbody>
+                            <tr *ngFor="let item of Envio_Mensajes; let i =index ">
+                                <td style="max-width:450px; width: 450px !important;" class="text-left">
+
+                                    {{item.Funcionario}}
+                                </td>
+                                <td style="max-width:500px; width: 150px !important;" class="text-left">
+                                    {{item.Fecha_Envio}}
+
+                                </td>
+
+                                <td style="max-width:500px; width: 500px !important;" class="text-left">
+
+                                    {{item.Mensaje}}
+                                </td>
+                            </tr>
+                        </tbody>
+
+
+
+
+                    </table>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <ngb-pagination class="pagination-rounded d-flex justify-content-center"
+                            [collectionSize]="pagination.collectionSize" [pageSize]="pagination.pageSize"
+                            [(page)]="pagination.page" maxSize="5" rotate="true" ellipses="false" boundaryLinks="true">
+                        </ngb-pagination>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <app-modal-basic #modalNuevaHojaMensaje [dialogClass]="'document'">
+        <div class="app-modal-header">
+            <h4 class="modal-title">Nuevo Mensaje</h4>
+            <button type="button" class="close basic-close" (click)="modalNuevaHojaMensaje.hide()">
+                <span aria-hiden="true">&times;</span>
+            </button>
+        </div>
+        <div class="app-modal-body">
+            <form #FormHojaMensaje="ngForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Numero</label>
+                        <input [(ngModel)]="Hoja.Funcionario" name="Funcionario" class="form-control form-control-sm"
+                            type="text">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Mensaje</label>
+                        <input [(ngModel)]="Hoja.Mensaje" name="Mensaje" class="form-control form-control-sm"
+                            type="text">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="app-modal-footer">
+            <div class="text-right">
+                <button type="button" class="btn btn-default btn-sm"
+                    (click)="modalNuevaHojaMensaje.hide()">Cancelar</button>
+                <button type="button" (click)="GuardarHoja()" [disabled]="!FormHojaMensaje.valid"
+                    class="btn btn-primary btn-sm">Enviar Mensaje</button>
+            </div>
+        </div>
+    </app-modal-basic>
+</div>
