@@ -22,6 +22,8 @@ import { CrearListaPreciosComponent } from "./crear-lista-precios/crear-lista-pr
 import { CrearFormaPagoComponent } from "./crear-forma-pago/crear-forma-pago.component";
 import { CrearCajaComponent } from "./crear-caja/crear-caja.component";
 import { CrearNotaTecnicaComponent } from "./crear-nota-tecnica/crear-nota-tecnica.component";
+import { HistoriaClinicaComponent } from "./historia-clinica/historia-clinica.component";
+import { HttpClientModule } from "@angular/common/http";
 
 
 @NgModule({
@@ -34,7 +36,7 @@ import { CrearNotaTecnicaComponent } from "./crear-nota-tecnica/crear-nota-tecni
         SetFuncionarioComponent,
         DependenciasComponent,
         EnvioMensajesComponent, CrearPlanBeneficioComponent,CrearListaPreciosComponent,
-       CrearFormaPagoComponent,CrearCajaComponent,CrearNotaTecnicaComponent,
+       CrearFormaPagoComponent,CrearCajaComponent,CrearNotaTecnicaComponent,HistoriaClinicaComponent,
         
         ],
 
@@ -46,7 +48,7 @@ import { CrearNotaTecnicaComponent } from "./crear-nota-tecnica/crear-nota-tecni
         NgbDropdownModule,
         NgbCollapseModule,
         PipesModule,
-        NgbNavModule,ReactiveFormsModule,
+        NgbNavModule,ReactiveFormsModule,HttpClientModule,
     ]
 })
 

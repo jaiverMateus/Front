@@ -38,7 +38,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Descripcion</label>
-                                    <input type="text" id="description" name="description" class="form-control form-control-sm f-9" formControlName="description" />
+                                    <textarea type="text" id="description" name="description" class="form-control form-control-sm f-9" formControlName="description" ></textarea>
                                     <div *ngIf="dataForm.controls['description'].invalid && (dataForm.controls['description'].dirty || dataForm.controls['description'].touched)" class="alert alert-danger">
                                         <div *ngIf="dataForm.controls['description'].errors.required">Descripcion de Caja es requerido.</div>
                                         </div>

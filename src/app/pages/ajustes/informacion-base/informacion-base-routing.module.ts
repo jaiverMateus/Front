@@ -12,6 +12,7 @@ import { CrearListaPreciosComponent } from "./crear-lista-precios/crear-lista-pr
 import { CrearFormaPagoComponent } from "./crear-forma-pago/crear-forma-pago.component";
 import { CrearCajaComponent } from "./crear-caja/crear-caja.component";
 import { CrearNotaTecnicaComponent } from "./crear-nota-tecnica/crear-nota-tecnica.component";
+import { HistoriaClinicaComponent } from "./historia-clinica/historia-clinica.component";
 
 const routes : Routes = [
     {path:'empresas',component:EmpresasComponent},
@@ -26,6 +27,7 @@ const routes : Routes = [
     {path:'crear-forma-pago',component:CrearFormaPagoComponent},
     {path:'crear-caja', component:CrearCajaComponent},
     {path:'crear-nota-tecnica',component:CrearNotaTecnicaComponent},
+    {path:'historia-clinica',component:HistoriaClinicaComponent},
 
 ]
 

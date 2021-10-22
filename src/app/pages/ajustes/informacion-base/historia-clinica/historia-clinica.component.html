@@ -1,0 +1,92 @@
+<div class="page-body">
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-md-12 text-center">
+                            <h4>Historias Clinicas</h4>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-4 d-flex justify-content-between mb-4 form-group">
+
+                        <input type="text" [(ngModel)]="filtroId"  class="form-control-sm form-control"  style="width: 200px;"
+                            placeholder="Buscar Paciente">
+                        <button class="btn btn-primary btn-sm" (click)="getPatient()">Buscar Historia</button>
+
+                    </div>
+                    
+                    <div class="col-md-12 text-center">
+                        <h5>Paciente</h5>
+                         <table class="table-striped table-bordered " style="font-size: 15px;">
+                            <thead>
+
+                                <tr>
+                                    <th>Identificacion</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Genero</th>
+                                    
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="width:350px " class="text-left">
+                                        {{patient.identifier}}
+                                    </td>
+                                    <td style="width:350px " class="text-left">
+                                        {{patient.firstname}}
+                                    </td>
+                                    <td style="width:350px " class="text-left">
+                                        {{patient.surname}}
+                                    </td>
+                                    <td style="width:150px " class="text-left">
+                                        {{patient.gener}}
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <table class="table-striped table-bordered " style="font-size: 15px;">
+                            <thead>
+                                <tr>
+                                    <th>segundo nombre </th>
+                                    <th>apellido </th>
+                                    <th>fecha nacimiento </th>
+                                    <th>telefono </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr >
+                                    <td style="width:350px " class="text-left">
+                                        {{patient.middlename}}
+                                    </td>
+                                    <td style="width:350px " class="text-left">
+                                        {{patient.secondsurname}}
+                                    </td>
+                                    <td style="width:350px " class="text-left">
+                                        {{patient.date_of_birth | date:'yyyy-MM-dd'}}
+                                    </td>
+                                    <td style="width:150px " class="text-left">
+                                        {{patient.phone}}
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
